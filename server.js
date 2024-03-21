@@ -24,6 +24,7 @@ const app = express()
 app.use(express.json());
 app.use(cors())
 
+app.get("/", (req, res) => res.send("App is working!"))
 app.post("/signin", (req, res) => { signin(req, res, db, bcrypt) })
 app.post("/register", (req, res) => { register(req, res, db, bcrypt) })
 app.get("/profile/:id", (req, res) => { profile(req, res, db) })
