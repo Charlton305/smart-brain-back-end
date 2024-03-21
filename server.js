@@ -31,4 +31,5 @@ app.get("/profile/:id", (req, res) => { profile(req, res, db) })
 app.post("/image", (req, res) => { image(req, res, db) })
 
 app.listen(PORT, () => {
+  console.log("Server is up!")
 })
