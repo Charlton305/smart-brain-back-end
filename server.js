@@ -8,6 +8,8 @@ import { signin } from "./controllers/signin.js"
 import { profile } from "./controllers/profile.js"
 import { image } from "./controllers/image.js"
 
+const PORT = process.env.PORT || 3000
+
 const db = knex({
   client: "pg",
   connection: {
@@ -27,5 +29,5 @@ app.post("/register", (req, res) => { register(req, res, db, bcrypt) })
 app.get("/profile/:id", (req, res) => { profile(req, res, db) })
 app.post("/image", (req, res) => { image(req, res, db) })
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
 })
