@@ -10,13 +10,17 @@ import { image } from "./controllers/image.js"
 
 const PORT = process.env.PORT || 3000
 
+const { DATABASE_HOST, DATABASE_URL, DATABASE_USER, DATABASE_PW, DATABASE_DB } = process.env
+
 const db = knex({
   client: "pg",
   connection: {
-    host: "127.0.0.1",
-    user: "postgres",
-    password: "postgres",
-    database: "smartbrain"
+    connectionString: DATABASE_URL,
+    host: DATABASE_HOST,
+    port: 5432,
+    user: DATABASE_USER,
+    password: DATABASE_PW,
+    database: DATABASE_DB
   }
 })
 
